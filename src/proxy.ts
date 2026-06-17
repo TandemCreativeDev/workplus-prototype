@@ -13,7 +13,9 @@ export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   url.pathname = "/login";
   url.search = "";
-  return NextResponse.redirect(url);
+  const response = NextResponse.redirect(url);
+  response.headers.set("Cache-Control", "no-store");
+  return response;
 }
 
 export const config = {
