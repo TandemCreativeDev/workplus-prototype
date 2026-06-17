@@ -2,7 +2,6 @@
 
 import { SnapshotProvider, useSnapshot } from "@/lib/useSnapshot";
 import { MatchProvider } from "@/lib/matchStore";
-import { BrowserFrame } from "@/components/BrowserFrame";
 import { AppHeader } from "@/components/AppHeader";
 import { Welcome } from "@/components/screens/Welcome";
 import { OrgDetails } from "@/components/screens/OrgDetails";
@@ -45,14 +44,45 @@ export default function WorkforceSnapshot() {
   return (
     <SnapshotProvider>
       <MatchProvider>
-        <BrowserFrame>
-          <AppHeader />
-          <main style={{ padding: "54px 30px 70px" }}>
-            <div style={{ maxWidth: 660, margin: "0 auto" }}>
-              <ScreenSwitch />
+        <div
+          style={{
+            minHeight: "100vh",
+            background: "#e7e7f7",
+            padding: "30px 22px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+          }}
+        >
+          <div style={{ width: "100%", maxWidth: 1040 }}>
+            <div
+              style={{
+                background: "#fff",
+                border: "1px solid #dfdff2",
+                borderRadius: 18,
+                overflow: "hidden",
+                boxShadow: "0 24px 60px -28px rgba(20,20,70,.32)",
+              }}
+            >
+              <AppHeader />
+              <main style={{ padding: "54px 30px 70px" }}>
+                <div style={{ maxWidth: 780, margin: "0 auto" }}>
+                  <ScreenSwitch />
+                </div>
+              </main>
             </div>
-          </main>
-        </BrowserFrame>
+            <p
+              style={{
+                textAlign: "center",
+                fontSize: 13,
+                color: "#9494b6",
+                margin: "18px 0 0",
+              }}
+            >
+              Workplus · Workforce Needs Snapshot · Proof of concept
+            </p>
+          </div>
+        </div>
       </MatchProvider>
     </SnapshotProvider>
   );
