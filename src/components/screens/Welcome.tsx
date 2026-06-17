@@ -94,7 +94,7 @@ export function Welcome() {
         }}
       >
         You&apos;ll describe your organisation, then add each role you&apos;re
-        recruiting for. We match every role to a standard occupation as you go —
+        recruiting for. We match every role to a standard occupation as you go -
         you just confirm it looks right.
       </p>
 
