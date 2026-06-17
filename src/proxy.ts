@@ -10,12 +10,13 @@ export function proxy(request: NextRequest) {
   const token = request.cookies.get(AUTH_COOKIE)?.value;
   if (token === expected) return NextResponse.next();
 
-  const url = request.nextUrl.clone();
-  url.pathname = "/login";
-  url.search = "";
-  const response = NextResponse.redirect(url);
-  response.headers.set("Cache-Control", "no-store");
-  return response;
+  return new NextResponse(null, {
+    status: 307,
+    headers: {
+      Location: "/login",
+      "Cache-Control": "no-store",
+    },
+  });
 }
 
 export const config = {

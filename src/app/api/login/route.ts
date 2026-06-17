@@ -7,18 +7,23 @@ export async function POST(request: NextRequest) {
   const password = String(form.get("password") ?? "");
   const expected = process.env.PASSWORD;
 
-  const home = new URL("/", request.url);
-  const loginUrl = new URL("/login", request.url);
-
   if (!expected || password !== expected) {
-    loginUrl.searchParams.set("error", "1");
-    const fail = NextResponse.redirect(loginUrl, { status: 303 });
-    fail.headers.set("Cache-Control", "no-store");
-    return fail;
+    return new NextResponse(null, {
+      status: 303,
+      headers: {
+        Location: "/login?error=1",
+        "Cache-Control": "no-store",
+      },
+    });
   }
 
-  const response = NextResponse.redirect(home, { status: 303 });
-  response.headers.set("Cache-Control", "no-store");
+  const response = new NextResponse(null, {
+    status: 303,
+    headers: {
+      Location: "/",
+      "Cache-Control": "no-store",
+    },
+  });
   response.cookies.set({
     name: AUTH_COOKIE,
     value: expected,
