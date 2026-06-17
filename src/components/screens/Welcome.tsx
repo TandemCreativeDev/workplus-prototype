@@ -3,7 +3,13 @@
 import { useSnapshot } from "@/lib/useSnapshot";
 import { PrimaryButton } from "@/components/PrimaryButton";
 
-function Bullet({ icon, children }: { icon: string; children: React.ReactNode }) {
+function Bullet({
+  icon,
+  children,
+}: {
+  icon: string;
+  children: React.ReactNode;
+}) {
   return (
     <div
       style={{
@@ -67,21 +73,42 @@ export function Welcome() {
       >
         Help shape apprenticeships and training across NI
       </h1>
-      <p style={{ fontSize: 19, lineHeight: 1.55, color: "var(--soft)", margin: "0 0 16px" }}>
-        Workplus works with learning providers to plan apprenticeship and training provision.
-        Tell us which roles you&apos;re hiring for, and we&apos;ll use it to plan the right
-        courses in the right places.
+      <p
+        style={{
+          fontSize: 19,
+          lineHeight: 1.55,
+          color: "var(--soft)",
+          margin: "0 0 16px",
+        }}
+      >
+        Workplus works with learning providers to plan apprenticeship and
+        training provision. Tell us which roles you&apos;re hiring for, and
+        we&apos;ll use it to plan the right courses in the right places.
       </p>
-      <p style={{ fontSize: 19, lineHeight: 1.55, color: "var(--soft)", margin: "0 0 28px" }}>
-        You&apos;ll describe your organisation, then add each role you&apos;re recruiting for.
-        We match every role to a standard occupation as you go — you just confirm it looks
-        right.
+      <p
+        style={{
+          fontSize: 19,
+          lineHeight: 1.55,
+          color: "var(--soft)",
+          margin: "0 0 28px",
+        }}
+      >
+        You&apos;ll describe your organisation, then add each role you&apos;re
+        recruiting for. We match every role to a standard occupation as you go —
+        you just confirm it looks right.
       </p>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 22px", marginBottom: 30 }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10px 22px",
+          marginBottom: 30,
+        }}
+      >
         <Bullet icon="◷">About 5 minutes</Bullet>
-        <Bullet icon="↪">No login or account needed</Bullet>
         <Bullet icon="↺">Stays on this device until you submit</Bullet>
+        <Bullet icon="!">Prototype version</Bullet>
       </div>
 
       <div
@@ -121,7 +148,12 @@ export function Welcome() {
           ].map((line) => (
             <li
               key={line}
-              style={{ display: "flex", gap: 11, fontSize: 17, color: "var(--soft)" }}
+              style={{
+                display: "flex",
+                gap: 11,
+                fontSize: 17,
+                color: "var(--soft)",
+              }}
             >
               <span style={{ color: "var(--blue)", fontWeight: 800 }}>›</span>
               {line}
@@ -132,8 +164,8 @@ export function Welcome() {
 
       <PrimaryButton onClick={start}>Start now</PrimaryButton>
       <p style={{ margin: "24px 0 0", fontSize: 14, color: "var(--muted)" }}>
-        Your answers are shared only with Workplus and the learning providers planning
-        provision in your area.
+        Your answers are shared only with Workplus and the learning providers
+        planning provision in your area.
       </p>
     </div>
   );
