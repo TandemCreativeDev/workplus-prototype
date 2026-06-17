@@ -12,10 +12,13 @@ export async function POST(request: NextRequest) {
 
   if (!expected || password !== expected) {
     loginUrl.searchParams.set("error", "1");
-    return NextResponse.redirect(loginUrl, { status: 303 });
+    const fail = NextResponse.redirect(loginUrl, { status: 303 });
+    fail.headers.set("Cache-Control", "no-store");
+    return fail;
   }
 
   const response = NextResponse.redirect(home, { status: 303 });
+  response.headers.set("Cache-Control", "no-store");
   response.cookies.set({
     name: AUTH_COOKIE,
     value: expected,
